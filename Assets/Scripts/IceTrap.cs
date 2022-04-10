@@ -30,9 +30,7 @@ namespace Geekbrains
         protected override void Interaction()
         {
             _rbPlayer.velocity = new Vector3(0, 0, 0);
-            _playerScript.Speed *= _slowSpeed;
-            Debug.Log($"Speed - {_playerScript.Speed}");
-            _playerScript.GetSlow(_slowTime, _slowSpeed);            
+            _playerScript.ChangeSpeed(_slowTime, _slowSpeed);            
         }
 
         

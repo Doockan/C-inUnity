@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -10,18 +9,37 @@ namespace Geekbrains
         [SerializeField] 
         private float _maxHealth;
 
+        private bool _immortal = false;
+
         public float CurrentHealth;
+
+        public void Awake()
+        {
+            CurrentHealth = _maxHealth;
+        }
 
         public void ApplyDamage(float damage)
         {
-            CurrentHealth -= damage;
+            if (!_immortal)
+            {
+                CurrentHealth -= damage;
+                Debug.Log($"Damage -> {damage}");
+                Debug.Log($"HP - {CurrentHealth}");
+            }
         }
 
-
-
-        public void Start()
+        public void Immortal(float time)
         {
-            CurrentHealth = _maxHealth;
+            _immortal = true;
+            Debug.Log($"IMMORTAL for {time} sec!!!!");
+            StartCoroutine(Mortal(time));
+        }
+
+        private IEnumerator Mortal(float time)
+        {
+            yield return new WaitForSeconds(time);
+            _immortal = false;
+            Debug.Log("immortal lost...");
         }
     }
 }

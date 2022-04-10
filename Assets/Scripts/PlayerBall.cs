@@ -8,15 +8,16 @@ namespace Geekbrains
         {
             Move();
         }
-        public void GetSlow(float slowTime, float slowSpeed)
+        public void ChangeSpeed(float time, float force)
         {
-            StartCoroutine(Slow(slowTime, slowSpeed));
+            Speed *= force;
+            StartCoroutine(ReturnSpeed(time, force));
         }
 
-        private IEnumerator Slow(float slowTime, float slowSpeed)
+        private IEnumerator ReturnSpeed(float time, float force)
         {
-            yield return new WaitForSeconds(slowTime);
-            Speed /= slowSpeed;
+            yield return new WaitForSeconds(time);
+            Speed /= force;
         }
     }
 }
