@@ -1,16 +1,12 @@
-﻿using System;
+﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
 
 namespace Geekbrains
 {
-    using UnityEngine;
-    using static TestStatic;
-    public static class TestStatic
-    {
-        public static void Do(){}
-    }
+    
     
     public class Test : MonoBehaviour
     {
@@ -24,10 +20,9 @@ namespace Geekbrains
             //     print($"{objects[i]}");
             // }
             
-            Array.Sort(_bonus, new GoodBonusComparer());
+            /*Array.Sort(_bonus, new GoodBonusComparer());
             var bonuses = new BonusIndexer();
-            Do();
-            var goodBonus = bonuses[0];
+            var goodBonus = bonuses[0];*/
         }
 
         public class BonusIndexer
