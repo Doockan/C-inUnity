@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Geekbrains
 {
-    public sealed class DisplayBonuses
+    public class DisplayBonuses : MonoBehaviour
     {
         private Text _text;
-        public DisplayBonuses()
+        public void Start()
         {
             _text = Object.FindObjectOfType<Text>();
         }
